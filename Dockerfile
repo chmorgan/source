@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:disco
 MAINTAINER Lazar Demin (lazar@onion.io)
 
 RUN apt-get update && apt-get install -y \
@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y \
     vim \
     git \
     wget \
+    rsync \
     curl \
     time \
     subversion \
@@ -24,7 +25,7 @@ RUN apt-get update && apt-get install -y \
     default-jdk \
     npm
 
-RUN npm install -g n node-gyp && n 4.3.1 && dpkg -r --force-depends nodejs
+RUN npm install -g node-gyp
 
 ENV FORCE_UNSAFE_CONFIGURE 1
 
